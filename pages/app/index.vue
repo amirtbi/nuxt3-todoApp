@@ -1,9 +1,8 @@
-<script setup>
+<script setup lang="ts">
 definePageMeta({
-  layout: "false",
+  layout: false,
 });
-// Constants
-const model = 1;
+const loading = ref<Boolean>(false);
 </script>
 
 <template>
@@ -21,7 +20,7 @@ const model = 1;
 
             <v-list>
               <TodoFilter @emitFilters="filterToDo"></TodoFilter>
-              <v-list-item-group v-model="model">
+              <v-list-item-group>
                 <v-list-item
                   class="d-flex justify-space-between"
                   v-for="(item, i) in todoList"

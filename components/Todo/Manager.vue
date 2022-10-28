@@ -1,13 +1,18 @@
-<script>
+<script lang="ts">
 // Constants
 export default {
   setup(props, { slots }) {
-    const model = 1;
-
+    interface ITodList {
+      title: string;
+      description: string;
+      done: string;
+    }
     const todoCreationError = ref(false);
     const loading = ref(false);
     const todoList = ref([]);
-    const filteredToDoLists = ref([]);
+
+    const filteredToDoLists = ref<ITodList[]>([]);
+
     // Computed
 
     const doneCount = computed(() => {
@@ -27,7 +32,7 @@ export default {
 
     // Functions
 
-    function filterToDoList(chosenFilter = null) {
+    function filterToDoList(chosenFilter: string | null = null): void {
       if (chosenFilter) {
         console.log("chosen filter", chosenFilter);
         filteredToDoLists.value = todoList.value.filter(
@@ -38,7 +43,7 @@ export default {
         filteredToDoLists.value = todoList.value;
       }
     }
-    function addToDo(values) {
+    function addToDo<T extends ITodList>(values: T) {
       const todoInfo = {
         title: values.title,
         description: values.description,

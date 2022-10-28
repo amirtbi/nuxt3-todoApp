@@ -1,7 +1,7 @@
-<script setup>
+<script setup lang="ts">
 const emits = defineEmits(["emitFilters"]);
 
-const statusFilter = ref(null);
+const statusFilter = ref<string>("");
 
 const computedFilterStatus = computed(() => {
   return statusFilter.value;
