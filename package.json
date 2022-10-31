@@ -5,10 +5,12 @@
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "postinstall": "nuxt prepare",
+    "lint": "eslint --ext .ts,.js,.vue ."
   },
   "devDependencies": {
     "@mdi/font": "^7.0.96",
+    "@nuxtjs/eslint-config-typescript": "^11.0.0",
     "nuxt": "3.0.0-rc.12"
   },
   "dependencies": {

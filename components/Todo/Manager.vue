@@ -9,7 +9,7 @@ export default {
     }
     const todoCreationError = ref(false);
     const loading = ref(false);
-    const todoList = ref([]);
+    const todoList = ref<ITodList[]>([]);
 
     const filteredToDoLists = ref<ITodList[]>([]);
 
